@@ -1,13 +1,17 @@
-package statemachine_test
+package statemachine
 
 import (
-	. "github.com/thinkrapido/go-statemachine/state"
-
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
   "time"
+  "testing"
 )
+
+func TestState(t *testing.T) {
+  RegisterFailHandler(Fail)
+  RunSpecs(t, "State Suite")
+}
 
 func testState(toBe string, done Done, after func() (*Machine)) {
     c := make(chan string, 0)
@@ -108,7 +112,7 @@ var _ = Describe("Statemachine", func() {
     })
 
     sm1.AddListener(noti)
-    
+
     sm1.SetStartState("state 1")
     sm1.Run()
   })
@@ -156,7 +160,7 @@ var _ = Describe("Statemachine", func() {
     })
 
     sm1.AddListener(noti)
-    
+
     sm1.SetStartState("state 1")
     sm1.Run()
   })
@@ -206,7 +210,7 @@ var _ = Describe("Statemachine", func() {
     })
 
     sm1.AddListener(noti)
-    
+
     sm1.SetStartState("state 1")
     sm1.Run()
   })
@@ -254,7 +258,7 @@ var _ = Describe("Statemachine", func() {
     })
 
     sm1.AddListener(noti)
-    
+
     sm1.SetStartState("state 1")
     sm1.Run()
   })
